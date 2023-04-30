@@ -1,13 +1,34 @@
-function contactForm (){
-    Email.send({
-        Host : "smtp.elasticemail.com",
-        Username : "someshmallewar7@gmail.com",
-        Password : "B7BD8A4E25A90978A238303F642AE0DEA2F4",
-        To : 'syedimtiyazali141@gmail.com',
-        From : "someshmallewar7@gmail.com",
-        Subject : "Thank You For Showing Interest - Jemini Photo Studio.",
-        Body : "We'll contact you shortly."
-    }).then(
-      message => alert('Your Details Submit Successfully')
-    );
+function mailSend(){
+  let form = {
+    name : document.getElementById('name').value,
+    number : document.getElementById('number').value,
+    email : document.getElementById('email').value,
+    message : document.getElementById('message').value,
+  };
+
+
+const s_id = "service_il1v1qs";
+const key_id = "template_c2vq228";
+
+emailjs.send(s_id, key_id, form)
+.then(
+  res=>{
+    name : document.getElementById('name').value = "";
+    number : document.getElementById('number').value = "";
+    email : document.getElementById('email').value = "";
+    message : document.getElementById('message').value = ""; 
+    alert("Sent Successfully.");
+  })
+.catch((err)=>console.log(err));
+
 }
+
+
+
+
+
+
+
+
+//servicID = service_il1v1qs
+//bdxoXThaLsnoivsyl
